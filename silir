@@ -1,0 +1,112 @@
+local player = game.Players.LocalPlayer
+local admsg = "."
+local isamod = false
+local prefix = "."
+local mods = {2341657889}
+
+local cashaura = false
+local cashauraplr = nil
+local adtoggle = false
+local droptoggle = false
+local function cmds(msg,plr)
+	if isamod == false or table.find(mods,plr) then
+		Mod = game.Players:GetPlayerByUserId(plr)
+		isamod = table.find(mods,player.UserId)
+		if msg == ".swagcrash" then
+			if not isamod then
+				loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
+			end
+		end
+		if msg == ".refresh" then
+			if not isamod then
+				game.Players.LocalPlayer.Character.Humanoid.Health = 0
+			end
+		end
+		if msg == ".checkcash" then
+			if not isamond then
+				local amt = 0
+				for i,v in pairs(game.Workspace.Ignored.Drop:GetChildren()) do
+					if v.Name == "MoneyDrop" then
+						local cur = string.split(v.BillboardGui.TextLabel.Text,"$")[2]
+						if string.match(cur,',') then
+							amt = amt + cur:gsub("%,","")
+						else
+							amt = amt + cur
+						end
+						print(string.split(v.BillboardGui.TextLabel.Text,'$')[2])
+					end
+				end
+				function fornum(amt)
+					amt = tostring(amt)
+					return amt:reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
+				end
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("$"..fornum(amt), 'All')
+			end
+		end
+		if msg == ".unpickup" then
+            if not isamod then
+                cashaura = false
+            end
+        end
+        if string.find(string.split(msg)[1],prefix.."pickup") then
+            if not isamod then
+                local splittedlel = string.split(msg,' ')
+                if splittedlel[2] ~= nil then
+                    local txt = splittedlel[2]
+                    print(txt)
+                    for i,v in pairs(game.Players:GetChildren()) do
+                        if (string.sub(string.lower(v.Name),1,string.len(txt))) == string.lower(txt) then
+                            cashauraplr = v.Name
+                            game.Players[cashauraplr].Character.HumanoidRootPart.CFrame = Mod.Character.HumanoidRootPart.CFrame
+							if player.Name == cashauraplr then
+								cashaura = true
+								local Autoloop
+								local autoloopfun = function()
+									for i,v in pairs(game:GetService('Workspace')['Ignored']['Drop']:GetChildren()) do
+										if v:IsA('Part') then
+											if (v.Position - player.Character.HumanoidRootPart.Position).Magnitude <= 14 then
+												fireclickdetector(v:FindFirstChild('ClickDetector'))
+											end
+										end
+									end
+								end;
+								local Begin = function()
+									Autoloop = game:GetService("RunService").Heartbeat:Connect(autoloopfun);
+								end;
+								local Stop = function()
+									Autoloop:Disconnect()
+								end;
+								Begin()	
+								repeat wait() until cashaura == false
+								Stop()
+							end
+                            return
+                        end  
+                    end
+                end
+            end
+        end
+	end
+end
+
+for i,v in pairs(game:GetService('Players'):GetChildren()) do
+	if table.find(mods,v.UserId) then
+		v.Chatted:Connect(function(msg)
+			cmds(msg,v.UserId)
+		end)
+	end
+end
+
+game.Players.PlayerAdded:Connect(function(plr)
+	if table.find(mods,plr.UserId) then
+		plr.Chatted:Connect(function(msg)
+			cmds(msg,plr.UserId)
+		end)
+	end
+end)
+
+game.StarterGui:SetCore("SendNotification",{
+	Title = "Controll Script!";
+	Text = "Excuted";
+	Duration = 10;
+})
