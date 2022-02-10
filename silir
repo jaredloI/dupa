@@ -1,3 +1,26 @@
+	   local UniversalAnimation = Instance.new("Animation")
+
+
+	   function loadAnimation(id)
+		   if UniversalAnimation.AnimationId == id then
+			   stopTracks();
+			   UniversalAnimation.AnimationId = "1"
+		   else
+			   UniversalAnimation.AnimationId = id
+			   local animationTrack = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):LoadAnimation(UniversalAnimation);
+			   animationTrack:Play()
+		   end
+	   end
+	   
+	   	   function stopTracks()
+		   for _, v in next, game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):GetPlayingAnimationTracks() do
+			   if (v.Animation.AnimationId:match("rbxassetid")) then
+				   v:Stop()
+			   end
+		   end
+	   end
+   
+
 local player = game.Players.LocalPlayer
 local admsg = "."
 local isamod = false
@@ -22,6 +45,27 @@ local function cmds(msg,plr)
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
 		end
+		if msg == ".lasso" then
+			if not isamod then
+			stopTracks()
+			wait()
+                    	loadAnimation("rbxassetid://7942896991")
+			end
+		end
+		if msg == ".chicken" then
+			if not isamod then
+			stopTracks()
+			wait()
+                    	loadAnimation("rbxassetid://4841399916")
+			end
+		end
+		if msg == ".punch" then
+			if not isamod then
+			stopTracks()
+			wait()
+                    	loadAnimation("rbxassetid://7202863182")
+			end
+		end
 		if msg == ".checkcash" then
 			if not isamond then
 				local amt = 0
@@ -40,7 +84,7 @@ local function cmds(msg,plr)
 					amt = tostring(amt)
 					return amt:reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
 				end
-				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("$"..fornum(amt), 'All')
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("pesosxd"..fornum(amt), 'All')
 			end
 		end
 		if msg == ".unpickup" then
