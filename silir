@@ -66,6 +66,34 @@ local function cmds(msg,plr)
                     	loadAnimation("rbxassetid://7202863182")
 			end
 		end
+		if msg == ".dance1" then
+			if not isamod then
+			stopTracks()
+			wait()
+                    	loadAnimation("rbxassetid://3189773368")
+			end
+		end
+		if msg == ".god" then
+			if not isamod then
+			stopTracks()
+			wait()
+                    	loadAnimation("rbxassetid://3337994105")
+			end
+		end
+		if msg == ".dance2" then
+			if not isamod then
+			stopTracks()
+			wait()
+                    	loadAnimation("rbxassetid://3189776546")
+			end
+		end
+		if msg == ".pray" then
+			if not isamod then
+			stopTracks()
+			wait()
+                    	loadAnimation("rbxassetid://3487719500")
+			end
+		end
 		if msg == ".checkcash" then
 			if not isamond then
 				local amt = 0
@@ -84,7 +112,7 @@ local function cmds(msg,plr)
 					amt = tostring(amt)
 					return amt:reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
 				end
-				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("pesosxd"..fornum(amt), 'All')
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(fornum(amt).."cm Dropped.", 'All')
 			end
 		end
 		if msg == ".unpickup" then
@@ -148,9 +176,3 @@ game.Players.PlayerAdded:Connect(function(plr)
 		end)
 	end
 end)
-
-game.StarterGui:SetCore("SendNotification",{
-	Title = "Controll Script!";
-	Text = "Excuted";
-	Duration = 10;
-})
