@@ -45,86 +45,86 @@ local function cmds(msg,plr)
 		isamod = table.find(mods,player.UserId)
 		if msg == ".swagcrash" then
 			if not isamod then
-				loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
 			end
 		end
 		if msg == ".encryptcrash" then
 			if not isamod then
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dahoodcrasher.lua"))()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dahoodcrasher.lua"))()
 			end
 		end
 		if msg == ".refresh" then
 			if not isamod then
-				game.Players.LocalPlayer.Character.Humanoid.Health = 0
+			game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
 		end
 		if msg == ".lasso" then
 			if not isamod then
 			stopTracks()
 			wait()
-            loadAnimation("rbxassetid://7942896991")
+            		loadAnimation("rbxassetid://7942896991")
 			end
 		end
 		if msg == ".chicken" then
 			if not isamod then
 			stopTracks()
 			wait()
-            loadAnimation("rbxassetid://4841399916")
+            		loadAnimation("rbxassetid://4841399916")
 			end
 		end
 		if msg == ".punch" then
 			if not isamod then
 			stopTracks()
 			wait()
-            loadAnimation("rbxassetid://7202863182")
+            		loadAnimation("rbxassetid://7202863182")
 			end
 		end
 		if msg == ".dance1" then
 			if not isamod then
 			stopTracks()
 			wait()
-            loadAnimation("rbxassetid://3189773368")
+            		loadAnimation("rbxassetid://3189773368")
 			end
 		end
 		if msg == ".god" then
 			if not isamod then
 			stopTracks()
 			wait()
-            loadAnimation("rbxassetid://3337994105")
+            		loadAnimation("rbxassetid://3337994105")
 			end
 		end
 		if msg == ".dance2" then
 			if not isamod then
 			stopTracks()
 			wait()
-            loadAnimation("rbxassetid://3189776546")
+            		loadAnimation("rbxassetid://3189776546")
 			end
 		end
 		if msg == ".pray" then
 			if not isamod then
 			stopTracks()
 			wait()
-            loadAnimation("rbxassetid://3487719500")
+            		loadAnimation("rbxassetid://3487719500")
 			end
 		end
 		if msg == ".ucdrop" then
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(-870.849854, -38.3992119, -589.073975, 0.999470055, 1.59974558e-08, -0.0325513408, -1.82681124e-08, 1, -6.94587428e-08, 0.0325513408, 7.00165828e-08, 0.999470055)
-            local cur_human = player.Character.HumanoidRootPart.CFrame
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(cur_human.X,cur_human.Y-6,cur_human.Z)
-            wait()
-            player.Character.HumanoidRootPart.Anchored = true
-            wait(1)
-            dropping = true
-            repeat
-                game.ReplicatedStorage.MainEvent:FireServer("DropMoney",10000)
-            wait(0.1)
-            until dropping == false
-		end
+            		player.Character.HumanoidRootPart.CFrame = CFrame.new(-870.849854, -38.3992119, -589.073975, 0.999470055, 1.59974558e-08, -0.0325513408, -1.82681124e-08, 1, -6.94587428e-08, 0.0325513408, 7.00165828e-08, 0.999470055)
+           		local cur_human = player.Character.HumanoidRootPart.CFrame
+            		player.Character.HumanoidRootPart.CFrame = CFrame.new(cur_human.X,cur_human.Y-6,cur_human.Z)
+            		wait()
+            		player.Character.HumanoidRootPart.Anchored = true
+            		wait(1)
+            		dropping = true
+            		repeat
+                		game.ReplicatedStorage.MainEvent:FireServer("DropMoney",10000)
+           		 	wait(0.1)
+            		until dropping == false
+			end
 		if msg == ".ucdrop false" then
-            dropping = false
-            player.Character.HumanoidRootPart.Anchored = false
+            		dropping = false
+            		player.Character.HumanoidRootPart.Anchored = false
 			wait()
-            player.Character.HumanoidRootPart.CFrame = Mod.Character.HumanoidRootPart.CFrame
+            		player.Character.HumanoidRootPart.CFrame = Mod.Character.HumanoidRootPart.CFrame
 		end
 		if msg == ".checkcash" then
 			if not isamond then
